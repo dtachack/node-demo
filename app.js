@@ -3,6 +3,12 @@ const express = require("express");
 const app = express();
 
 const port = process.env.PORT || 5008;
+app.use(
+  cors({
+    origin: "*",
+  })
+);
+
 app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "http://localhost");
   res.setHeader(
