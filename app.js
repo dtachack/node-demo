@@ -34,7 +34,9 @@ app.post("/downloadPDF", function (req, res) {
       // res.type("application/pdf");
       // res.header("Content-Disposition", `attachment; filename="example.pdf"`);
       // res.send(Buffer.from(base64Str, "base64"));
-      res.send(base64Str);
+      res.setHeader('Content-Type', 'application/json');
+      res.end(JSON.stringify({ file: base64Str }));
+      //res.send(base64Str);
       // res.send("ok");
     })
     .catch((err) => {
