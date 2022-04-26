@@ -3,28 +3,18 @@ const express = require("express");
 const app = express();
 
 const port = process.env.PORT || 5008;
-app.use(
-  cors({
-    origin: "*",
-  })
-);
 
-app.use(function (req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "X-Requested-With,content-type"
-  );
-  res.setHeader("Access-Control-Allow-Credentials", true);
+app.use(function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
 
+
 app.get("/", (req, res) => {
-  res.send("Servicio ncendido");
+  res.send("Servicio ncendido v 1.0");
 });
 
 app.post("/downloadPDF", function (req, res) {
