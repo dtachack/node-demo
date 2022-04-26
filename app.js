@@ -55,7 +55,7 @@ server.post("/downloadPDF", function (req, res) {
 });
 
 server.post("/download-pdf", (req, res) => {
-  const urlFile = req?.body?.url;
+  const urlFile = req.body.url;
   if (!urlFile) res.sendStatus(500);
   fetch(urlFile, {
     method: "GET",
